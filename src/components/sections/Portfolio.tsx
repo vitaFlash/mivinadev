@@ -1,14 +1,14 @@
 import { useState } from "react";
-import flowersVideo from "@/assets/videos/flowers.mp4";
-import vhsVideo from "@/assets/videos/vhs-art.mp4";
-import bacteriaVideo from "@/assets/videos/bacteria-neon.mp4";
+import necroblendImg from "@/assets/projects/necroblend.png";
+import cyberheroinImg from "@/assets/projects/cyberheroin.png";
+import ammecImg from "@/assets/projects/ammec.png";
 
 const projects = [
   {
     id: 1,
     title: "Necroblend",
     category: "E-commerce",
-    video: bacteriaVideo,
+    image: necroblendImg,
     description: "Glitchwear for synthetic souls & candycore misfits",
     url: "https://necroblend.com/",
   },
@@ -16,7 +16,7 @@ const projects = [
     id: 2,
     title: "Cyberheroin",
     category: "Digital Experience",
-    video: flowersVideo,
+    image: cyberheroinImg,
     description: "Electronic music artist platform & identity",
     url: "https://cyberheroin.love/",
   },
@@ -24,30 +24,9 @@ const projects = [
     id: 3,
     title: "AMMEC",
     category: "Web Application",
-    video: vhsVideo,
+    image: ammecImg,
     description: "Association promoting autonomy for people with physical disabilities",
     url: "https://www.ammec.org/",
-  },
-  {
-    id: 4,
-    title: "Fragments",
-    category: "Web Application",
-    video: bacteriaVideo,
-    description: "Pieces that form a greater whole",
-  },
-  {
-    id: 5,
-    title: "Nocturne",
-    category: "Digital Experience",
-    video: flowersVideo,
-    description: "Beauty found in darkness",
-  },
-  {
-    id: 6,
-    title: "Signal",
-    category: "AI Integration",
-    video: vhsVideo,
-    description: "Where machines learn to create",
   },
 ];
 
@@ -71,32 +50,24 @@ const Portfolio = () => {
         {/* Project grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <div
+            <a
               key={project.id}
-              className="group relative aspect-[4/5] bg-card overflow-hidden cursor-pointer"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative aspect-[4/5] bg-card overflow-hidden cursor-pointer block"
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Video background on hover */}
+              {/* Image background */}
               <div className="absolute inset-0 bg-muted">
-                <video
-                  src={project.video}
-                  muted
-                  loop
-                  playsInline
-                  className={`w-full h-full object-cover transition-opacity duration-700 ${
-                    hoveredId === project.id ? "opacity-50" : "opacity-20"
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={`w-full h-full object-cover transition-all duration-700 ${
+                    hoveredId === project.id ? "opacity-70 scale-105" : "opacity-40"
                   }`}
-                  ref={(el) => {
-                    if (el) {
-                      if (hoveredId === project.id) {
-                        el.play();
-                      } else {
-                        el.pause();
-                      }
-                    }
-                  }}
                 />
               </div>
 
@@ -121,7 +92,7 @@ const Portfolio = () => {
 
               {/* Corner accent */}
               <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-primary/30 group-hover:border-primary transition-colors duration-500" />
-            </div>
+            </a>
           ))}
         </div>
       </div>
