@@ -124,18 +124,6 @@ const Contact = () => {
             </div>
           </form>
 
-          {/* Alternative contact */}
-          <div className="mt-16 pt-16 border-t border-border">
-            <p className="text-muted-foreground text-sm mb-4">
-              Prefer a direct line?
-            </p>
-            <a
-              href="mailto:hello@mivina.studio"
-              className="text-primary hover:text-glow-primary transition-all duration-300 font-display text-lg"
-            >
-              hello@mivina.studio
-            </a>
-          </div>
         </div>
       </div>
     </section>
