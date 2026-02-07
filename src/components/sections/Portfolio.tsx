@@ -1,4 +1,7 @@
 import { useState } from "react";
+import necroblendVideo from "@/assets/videos/necroblend.mp4";
+import cyberheroinVideo from "@/assets/videos/cyberheroin-gen.mp4";
+import ammecVideo from "@/assets/videos/ammec.mp4";
 import necroblendImg from "@/assets/projects/necroblend.png";
 import cyberheroinImg from "@/assets/projects/cyberheroin.png";
 import ammecImg from "@/assets/projects/ammec.png";
@@ -8,7 +11,8 @@ const projects = [
     id: 1,
     title: "Necroblend",
     category: "E-commerce",
-    image: necroblendImg,
+    video: necroblendVideo,
+    poster: necroblendImg,
     description: "Glitchwear for synthetic souls & candycore misfits",
     url: "https://necroblend.com/",
   },
@@ -16,7 +20,8 @@ const projects = [
     id: 2,
     title: "Cyberheroin",
     category: "Digital Experience",
-    image: cyberheroinImg,
+    video: cyberheroinVideo,
+    poster: cyberheroinImg,
     description: "Electronic music artist platform & identity",
     url: "https://cyberheroin.love/",
   },
@@ -24,7 +29,8 @@ const projects = [
     id: 3,
     title: "AMMEC",
     category: "Web Application",
-    image: ammecImg,
+    video: ammecVideo,
+    poster: ammecImg,
     description: "Association promoting autonomy for people with physical disabilities",
     url: "https://www.ammec.org/",
   },
@@ -60,14 +66,27 @@ const Portfolio = () => {
               onMouseLeave={() => setHoveredId(null)}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Image background */}
+              {/* Video background */}
               <div className="absolute inset-0 bg-muted">
-                <img
-                  src={project.image}
-                  alt={project.title}
+                <video
+                  src={project.video}
+                  poster={project.poster}
+                  muted
+                  loop
+                  playsInline
                   className={`w-full h-full object-cover transition-all duration-700 ${
                     hoveredId === project.id ? "opacity-70 scale-105" : "opacity-40"
                   }`}
+                  ref={(el) => {
+                    if (el) {
+                      if (hoveredId === project.id) {
+                        el.play();
+                      } else {
+                        el.pause();
+                        el.currentTime = 0;
+                      }
+                    }
+                  }}
                 />
               </div>
 
