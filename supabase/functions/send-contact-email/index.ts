@@ -43,7 +43,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const emailResponse = await resend.emails.send({
       from: "Mivina Contact Form <onboarding@resend.dev>",
-      to: ["mivinadev@gmail.com"],
+      to: ["vitaliaflash@gmail.com"],
       replyTo: email,
       subject: `New Contact from ${name}`,
       html: `
