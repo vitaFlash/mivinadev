@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* { margin: 0; padding: 0; }
+body { width: 1200px; height: 630px; overflow: hidden; background: #08090d; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative; }
+.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.logo { width: 520px; filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 40px rgba(0, 212, 255, 0.25)); }
+.logo path { fill: white; }
+.tagline { color: rgba(255,255,255,0.65); font-family: Inter, Arial, sans-serif; font-size: 20px; letter-spacing: 4px; font-weight: 300; }
+</style>
+</head>
+<body>
+<img class="bg" src="og-background-temp.png" />
+<div class="content">
+<svg class="logo" viewBox="0 0 1057 218" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.00351772 -0.00157881L104.704 111.598L209.404 -0.00157881V215.398H174.304V83.3984L104.704 158.698L34.8035 83.3984V215.398H0.00351772V-0.00157881ZM279.011 167.698L250.211 108.898L279.011 50.0984L250.211 2.39843H288.011L316.811 50.0984L288.011 108.898L316.511 167.698L287.711 215.398H250.211L279.011 167.698ZM325.731 2.39843H364.431L424.731 137.998L485.031 2.39843H523.731L424.731 217.798L325.731 2.39843ZM566.12 167.698L537.32 108.898L566.12 50.0984L537.32 2.39843H575.12L603.92 50.0984L575.12 108.898L603.62 167.698L574.82 215.398H537.32L566.12 167.698ZM679.042 78.5984V215.398H644.242V-0.00157881L789.742 139.198V2.39843H824.542V217.798L679.042 78.5984ZM952.145 -0.00157881L1056.54 215.398H1019.34L996.845 167.998H907.445L885.245 215.398H848.045L952.145 -0.00157881ZM982.445 137.698L952.145 73.4984L921.845 137.698H982.445Z" fill="white"/>
+</svg>
+<div class="tagline">Where code meets canvas</div>
+</div>
+</body>
+</html>
